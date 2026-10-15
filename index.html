@@ -1,1 +1,70 @@
-<h1>photo</h1></h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моя галерея</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+    h1 {
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .grid img:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+  <h1>Моя галерея</h1>
+  <div class="grid" id="gallery"></div>
+
+  <script>
+    const gallery = document.getElementById('gallery');
+    
+    // Список ваших фотографий из папки gallery
+    const images = [
+      'gallery/_MG_3001.JPG',
+      'gallery/_MG_3008.JPG',
+      'gallery/_MG_3014.JPG',
+      'gallery/_MG_3024.JPG',
+      'gallery/_MG_3037.JPG',
+      'gallery/_MG_3064.JPG',
+      'gallery/_MG_3075.JPG',
+      'gallery/_MG_3080.JPG',
+      'gallery/_MG_3090.JPG',
+      'gallery/_MG_3093.JPG'
+    ];
+
+    images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Фотография';
+      img.loading = 'lazy';
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>
